@@ -1,0 +1,35 @@
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Header styles */
+.header {
+  background-color: #0077b6;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #023e8a;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: auto;
+}
