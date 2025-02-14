@@ -8,13 +8,16 @@ import { useState } from "react";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("Mountains");
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div>
+    <div className="app-container">
       <Header />
-      <Search />
+      <Search onSearch={setSearchQuery} />
       <Navbar onSelectCategory={setSelectedCategory} />
-      <ImageGallery category={selectedCategory} />
+      <main className="main-content">
+        <ImageGallery category={selectedCategory} searchQuery={searchQuery} />
+      </main>
       <Footer />
     </div>
   );

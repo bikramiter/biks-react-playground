@@ -9,22 +9,30 @@ interface Image {
   title: string;
 }
 
-const ImageGallery = ({ category }: { category: string }) => {
+const ImageGallery = ({
+  category,
+  searchQuery,
+}: {
+  category: string;
+  searchQuery: string;
+}) => {
   const [images, setImages] = useState<Image[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    fetchImages(category).then((photos) => {
+    fetchImages(category, searchQuery).then((photos) => {
       setImages(photos);
       setLoading(false);
     });
-  }, [category]);
+  }, [category, searchQuery]);
 
   return (
     <div className="gallery-wrapper">
       <div className="gallery-container">
-        <h2>{category} Images</h2>
+        <h2>
+          {searchQuery ? `Results for "${searchQuery}"` : `${category} Images`}
+        </h2>
         {loading && <p>Loading images...</p>}
         {!loading && images.length === 0 && (
           <p>No images found for "{category}"</p>

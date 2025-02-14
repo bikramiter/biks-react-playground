@@ -1,17 +1,23 @@
-/* Reset default margins and paddings */
-* {
+/* Ensure the whole page takes full height */
+html,
+body,
+#root {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  background-color: #f8f9fa;
-  color: #333;
+}
+
+/* Push content to fill available space */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures full height */
+}
+
+/* Push footer to the bottom */
+.main-content {
+  flex: 1;
 }
 
 /* Header styles */
@@ -26,16 +32,37 @@ body {
 
 /* Footer styles */
 .footer {
-  background-color: #023e8a;
+  background: #333;
   color: white;
   text-align: center;
   padding: 10px;
-  font-size: 1rem;
-  margin-top: auto;
 }
 
-.search {
-  text-align: center;
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-input {
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-button {
+  margin-left: 10px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
 }
 
 /* Navbar styles */
