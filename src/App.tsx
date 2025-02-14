@@ -7,7 +7,7 @@ import ImageGallery from "./components/ImageGallery";
 import { useState } from "react";
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState("Mountains");
+  const [selectedCategory, setSelectedCategory] = useState("Nature");
   const [searchQuery, setSearchQuery] = useState("");
 
   return (

@@ -1,4 +1,10 @@
-const categories = ["Mountains", "Beaches", "Birds", "Foods"];
+const categories = [
+  "Nature",
+  "Cityscapes",
+  "Animals",
+  "Food & Drinks",
+  "Art & Culture",
+];
 
 const Navbar = ({
   onSelectCategory,
