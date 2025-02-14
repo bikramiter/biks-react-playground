@@ -1,20 +1,21 @@
-const Navbar = () => {
+const categories = ["Mountains", "Beaches", "Birds", "Foods"];
+
+const Navbar = ({
+  onSelectCategory,
+}: {
+  onSelectCategory: (category: string) => void;
+}) => {
   return (
     <nav className="navbar">
-      <ul>
-        <li>
-          <a href="#">Mountains</a>
-        </li>
-        <li>
-          <a href="#">Beaches</a>
-        </li>
-        <li>
-          <a href="#">Birds</a>
-        </li>
-        <li>
-          <a href="#">Foods</a>
-        </li>
-      </ul>
+      {categories.map((category) => (
+        <button
+          key={category}
+          onClick={() => onSelectCategory(category)}
+          className="nav-pill"
+        >
+          {category}
+        </button>
+      ))}
     </nav>
   );
 };

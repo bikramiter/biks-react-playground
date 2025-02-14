@@ -7,14 +7,14 @@ import ImageGallery from "./components/ImageGallery";
 import { useState } from "react";
 
 function App() {
-  const [category, setCategory] = useState("mountains");
+  const [selectedCategory, setSelectedCategory] = useState("Mountains");
 
   return (
     <div>
       <Header />
       <Search />
-      <Navbar />
-      <ImageGallery category={category} />
+      <Navbar onSelectCategory={setSelectedCategory} />
+      <ImageGallery category={selectedCategory} />
       <Footer />
     </div>
   );

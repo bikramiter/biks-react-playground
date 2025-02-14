@@ -40,45 +40,32 @@ body {
 
 /* Navbar styles */
 .navbar {
-  padding: 10px 0;
-  text-align: center;
-}
-
-.navbar ul {
-  list-style: none;
-  padding: 0;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
+  margin: 20px 0;
 }
 
-.navbar ul li {
-  display: inline;
-}
-
-/* Pill-style navbar links */
-.navbar ul li a {
-  text-decoration: none;
-  background-color: white;
-  color: #0088cc;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 20px; /* Makes it rounded like a pill */
-  border: 2px solid #0088cc;
-  transition: all 0.3s ease-in-out;
-}
-
-.navbar ul li a:hover {
-  background-color: #0088cc;
+.nav-pill {
+  background: #007bff;
   color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1rem;
+}
+
+.nav-pill:hover {
+  background: #0056b3;
 }
 
 /* Center the gallery and limit max width */
 .gallery-wrapper {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding-bottom: 10px;
 }
 
 .gallery-container {
