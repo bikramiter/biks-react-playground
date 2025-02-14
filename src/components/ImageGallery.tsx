@@ -11,24 +11,33 @@ interface Image {
 
 const ImageGallery = ({ category }: { category: string }) => {
   const [images, setImages] = useState<Image[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetchImages(category).then((photos) => {
       setImages(photos);
+      setLoading(false);
     });
   }, [category]);
 
   return (
     <div className="gallery-wrapper">
       <div className="gallery-container">
+        <h2>{category} Images</h2>
+        {loading && <p>Loading images...</p>}
+        {!loading && images.length === 0 && (
+          <p>No images found for "{category}"</p>
+        )}
         <div className="image-grid">
-          {images.map((image) => (
-            <img
-              key={image.id}
-              src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
-              alt={image.title}
-            />
-          ))}
+          {!loading &&
+            images.map((image) => (
+              <img
+                key={image.id}
+                src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
+                alt={image.title}
+              />
+            ))}
         </div>
       </div>
     </div>
