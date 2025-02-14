@@ -1,3 +1,3 @@
 **image-gallery**
 
-![image-gallary](image.png)
+![image-gallary](./src/assets/project-images/image-gallery.webp)
