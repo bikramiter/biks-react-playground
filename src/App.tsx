@@ -1,7 +1,7 @@
-import "./App.css";
+import Game from "./components/Game";
 
 function App() {
-  return <>Hello world!</>;
+  return <Game />;
 }
 
 export default App;
