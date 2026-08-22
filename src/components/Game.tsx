@@ -1,7 +1,19 @@
 import { cards } from "../data/cards";
 import "./Game.css";
+import Card from "./Card";
+import { useState } from "react";
 
 function Game() {
+  const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+
+  function handleCardClick(cardId: number) {
+    //alreary selected card clicked - unselect the card
+    //no card selected - select clicked card
+    //a different card clicked - select this one and unselect the previous one
+    cardId === selectedCardId
+      ? setSelectedCardId(null)
+      : setSelectedCardId(cardId);
+  }
   return (
     <main className="game">
       <header className="game-header">
@@ -11,9 +23,12 @@ function Game() {
 
       <section className="board">
         {cards.map((card) => (
-          <div className="card" key={card.id}>
-            <span className="card-symbol">{card.symbol}</span>
-          </div>
+          <Card
+            key={card.id}
+            card={card}
+            selected={card.id === selectedCardId}
+            handleClick={() => handleCardClick(card.id)}
+          />
         ))}
       </section>
     </main>

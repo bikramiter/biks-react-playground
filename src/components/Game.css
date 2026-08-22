@@ -1,7 +1,11 @@
 .game {
-  min-height: 100vh;
-  padding: 48px 24px;
+  height: 100vh;
   box-sizing: border-box;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+
   background: #111827;
   color: #f9fafb;
   font-family:
@@ -11,59 +15,109 @@
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+
+  overflow: hidden;
 }
 
 .game-header {
-  max-width: 720px;
-  margin: 0 auto 32px;
+  flex-shrink: 0;
+  margin-bottom: 32px;
   text-align: center;
 }
 
 .game-header h1 {
   margin: 0;
-  font-size: 2.5rem;
-  letter-spacing: -0.04em;
+  font-size: 2rem;
 }
 
 .game-header p {
-  margin: 8px 0 0;
+  margin: 4px 0 0;
   color: #9ca3af;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .board {
-  width: min(720px, 100%);
+  width: min(600px, 100%);
   margin: 0 auto;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: 10px;
 }
 
 .card {
-  aspect-ratio: 1;
+  position: relative;
+  aspect-ratio: 1/1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 12px;
 
   background: #1f2937;
-  border: 1px solid #374151;
-  border-radius: 14px;
+  border: 2px solid #374151;
+  border-radius: 16px;
 
   cursor: pointer;
 
   transition:
     transform 150ms ease,
     border-color 150ms ease,
-    background-color 150ms ease;
+    box-shadow 150ms ease;
 }
 
 .card:hover {
   transform: translateY(-3px);
-  border-color: #6b7280;
-  background: #273449;
+}
+
+.card.selected {
+  transform: translateY(-5px);
+  border-width: 3px;
+  box-shadow:
+    0 0 0 2px #f9fafb,
+    0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.card-red {
+  border-color: #ef4444;
+}
+
+.card-blue {
+  border-color: #3b82f6;
+}
+
+.card-green {
+  border-color: #22c55e;
+}
+
+.card-yellow {
+  border-color: #eab308;
 }
 
 .card-symbol {
-  font-size: 2rem;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.card-shape {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9ca3af;
+}
+
+.card-number {
+  position: absolute;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.card-number-top {
+  top: 12px;
+  left: 14px;
+}
+
+.card-number-bottom {
+  right: 14px;
+  bottom: 12px;
 }
