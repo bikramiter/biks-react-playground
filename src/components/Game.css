@@ -121,3 +121,18 @@
   right: 14px;
   bottom: 12px;
 }
+
+.round-complete {
+  margin-top: 12px;
+  padding: 10px 20px;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+
+  border: 2px solid #22c55e;
+  border-radius: 10px;
+
+  background: #14532d;
+  color: #bbf7d0;
+}
