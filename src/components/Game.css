@@ -122,7 +122,7 @@
   bottom: 12px;
 }
 
-.round-complete {
+.round-won {
   margin-top: 12px;
   padding: 10px 20px;
 
@@ -135,4 +135,19 @@
 
   background: #14532d;
   color: #bbf7d0;
+}
+
+.round-lost {
+  margin-top: 12px;
+  padding: 10px 20px;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+
+  border: 2px solid #ef4444;
+  border-radius: 10px;
+
+  background: #450a0a;
+  color: #fecaca;
 }

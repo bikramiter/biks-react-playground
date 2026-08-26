@@ -2,13 +2,17 @@ import { cards } from "../data/cards";
 import "./Game.css";
 import Card from "./Card";
 import { useState } from "react";
+import { gameRules } from "../rules/rules";
 
 function Game() {
+  const [rule] = useState(
+    () => gameRules[Math.floor(Math.random() * gameRules.length)],
+  );
   const [feedback, setFeedback] = useState("");
-  const [lives, setLives] = useState(3);
+  const [lives, setLives] = useState(5);
   const [foundCards, setFoundCards] = useState<number[]>([]);
 
-  const correctCards = cards.filter((card) => card.color === "blue");
+  const correctCards = cards.filter(rule);
   // check if all correct cards found
   const allCardsIdentified = correctCards.every((card) =>
     foundCards.includes(card.id),
@@ -33,7 +37,7 @@ function Game() {
   }
 
   function handleCardClick(cardId: number) {
-    if (allCardsIdentified) return;
+    if (allCardsIdentified || lives === 0) return;
     // check if selected card is correct
     const cardIsCorrect = correctCards.some((card) => card.id === cardId);
     // if correct, keep selected and store in foundCards
@@ -60,8 +64,9 @@ function Game() {
           {feedback === "wrong" && "❌ Wrong!"}
         </div>
         {allCardsIdentified && (
-          <div className="round-complete">🎉 Round Complete!</div>
+          <div className="round-won">🎉 Round Complete!</div>
         )}
+        {lives === 0 && <div className="round-lost">Sorry! You lost 😢</div>}
       </header>
 
       <section className="board">
