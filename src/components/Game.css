@@ -151,3 +151,28 @@
   background: #450a0a;
   color: #fecaca;
 }
+
+.restart-button {
+  margin-top: 12px;
+  padding: 9px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #374151;
+  color: #f9fafb;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 150ms ease,
+    transform 150ms ease;
+}
+
+.restart-button:hover {
+  background: #4b5563;
+  transform: translateY(-2px);
+}

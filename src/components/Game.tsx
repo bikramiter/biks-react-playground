@@ -5,7 +5,7 @@ import { useState } from "react";
 import { gameRules } from "../rules/rules";
 
 function Game() {
-  const [rule] = useState(
+  const [rule, setRule] = useState(
     () => gameRules[Math.floor(Math.random() * gameRules.length)],
   );
   const [feedback, setFeedback] = useState("");
@@ -49,6 +49,13 @@ function Game() {
     else wrongCardSelected();
   }
 
+  function handleRestart() {
+    setFeedback("");
+    setLives(5);
+    setFoundCards([]);
+    setRule(() => gameRules[Math.floor(Math.random() * gameRules.length)]);
+  }
+
   return (
     <main className="game">
       <header className="game-header">
@@ -67,6 +74,11 @@ function Game() {
           <div className="round-won">🎉 Round Complete!</div>
         )}
         {lives === 0 && <div className="round-lost">Sorry! You lost 😢</div>}
+        {(allCardsIdentified || lives === 0) && (
+          <button className="restart-button" onClick={handleRestart}>
+            🔄 Play Again
+          </button>
+        )}
       </header>
 
       <section className="board">
