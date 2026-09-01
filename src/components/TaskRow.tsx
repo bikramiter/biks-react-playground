@@ -1,16 +1,6 @@
+import { Link } from "react-router-dom";
 import type { Task } from "../types/task";
-
-const statusLabels: Record<Task["status"], string> = {
-  new: "New",
-  "in-progress": "In Progress",
-  completed: "Completed",
-};
-
-const priorityLabels: Record<Task["priority"], string> = {
-  low: "Low",
-  medium: "Medium",
-  high: "High",
-};
+import { priorityLabels, statusLabels } from "../utils/taskLabels";
 
 type TaskRowProps = {
   task: Task;
@@ -20,9 +10,9 @@ export default function TaskRow({ task }: TaskRowProps) {
   return (
     <tr>
       <td>
-        <a className="task-title" href={`/tasks/${task.id}`}>
+        <Link className="task-title" to={`/tasks/${task.id}`}>
           {task.title}
-        </a>
+        </Link>
       </td>
       <td>{priorityLabels[task.priority]}</td>
       <td>{statusLabels[task.status]}</td>

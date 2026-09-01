@@ -45,18 +45,6 @@ td {
   color: #e6edf3;
 }
 
-.task-title {
-  color: #e6edf3;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.task-title:hover {
-  color: #58a6ff;
-  text-decoration: underline;
-}
-
 tbody tr:hover {
   background: #161b22;
 }
@@ -70,5 +58,29 @@ tbody tr:hover {
 
 .task-title:hover {
   color: #58a6ff;
+  text-decoration: underline;
+}
+
+.task-details {
+  max-width: 700px;
+}
+
+.task-details p {
+  margin: 0.75rem 0;
+}
+
+.task-details-label {
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.back-link:hover {
   text-decoration: underline;
 }
