@@ -1,4 +1,5 @@
 import type { Task } from "../types/task";
+import TaskRow from "./TaskRow";
 
 type TasksProps = {
   tasks: Task[];
@@ -18,11 +19,7 @@ export default function Tasks({ tasks }: TasksProps) {
         </thead>
         <tbody>
           {tasks.map((task) => (
-            <tr key={task.id}>
-              <td>{task.title}</td>
-              <td>{task.priority}</td>
-              <td>{task.status}</td>
-            </tr>
+            <TaskRow key={task.id} task={task} />
           ))}
         </tbody>
       </table>
