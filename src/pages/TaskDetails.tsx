@@ -1,8 +1,12 @@
 import { Link, useParams } from "react-router-dom";
-import { tasks } from "../data/tasks";
 import { priorityLabels, statusLabels } from "../utils/taskLabels";
+import type { Task } from "../types/task";
 
-export default function TaskDetails() {
+type TaskDetailsProps = {
+  tasks: Task[];
+};
+
+export default function TaskDetails({ tasks }: TaskDetailsProps) {
   const { taskId } = useParams();
   const taskDetails = tasks.find((task) => task.id === Number(taskId));
   return (

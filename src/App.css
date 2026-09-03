@@ -84,3 +84,94 @@ tbody tr:hover {
 .back-link:hover {
   text-decoration: underline;
 }
+
+.new-task-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e6edf3;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.new-task-link:hover {
+  color: #58a6ff;
+  border-color: #58a6ff;
+  text-decoration: none;
+}
+
+.cancel-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #8b949e;
+  text-decoration: none;
+}
+
+.cancel-link:hover {
+  color: #58a6ff;
+  text-decoration: underline;
+}
+
+.task-form {
+  max-width: 600px;
+}
+
+.task-form-field {
+  margin-bottom: 1.25rem;
+}
+
+.task-form-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.task-form-field input,
+.task-form-field textarea,
+.task-form-field select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #0d1117;
+  color: #e6edf3;
+  font: inherit;
+}
+
+.task-form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.task-form-field input:focus,
+.task-form-field textarea:focus,
+.task-form-field select:focus {
+  outline: 2px solid #58a6ff;
+  outline-offset: 1px;
+}
+
+.task-form-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.task-form-actions button {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #21262d;
+  color: #e6edf3;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-form-actions button:hover {
+  border-color: #58a6ff;
+  color: #58a6ff;
+}

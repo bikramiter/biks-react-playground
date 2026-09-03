@@ -1,14 +1,32 @@
 import "./App.css";
-import { tasks } from "./data/tasks";
+import { tasks as initialTasks } from "./data/tasks";
 import Tasks from "./components/Tasks";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import TaskDetails from "./pages/TaskDetails";
+import CreateTask from "./pages/CreateTask";
+import { useState } from "react";
+import type { Task } from "./types/task";
 
 function App() {
+  const [allTasks, setAllTasks] = useState<Task[]>(initialTasks);
+
+  function handleAddTask(newTask: Task) {
+    setAllTasks((prevTasks) => [...prevTasks, newTask]);
+  }
   return (
     <Routes>
-      <Route path="/tasks" element={<Tasks tasks={tasks} />} />
-      <Route path="/tasks/:taskId" element={<TaskDetails />} />
+      <Route index element={<Navigate to="/tasks" replace />} />
+      <Route path="/tasks" element={<Tasks tasks={allTasks} />} />
+      <Route path="/tasks/:taskId" element={<TaskDetails tasks={allTasks} />} />
+      <Route
+        path="/new-task"
+        element={
+          <CreateTask
+            onAddTask={handleAddTask}
+            nextTaskId={allTasks.length + 1}
+          />
+        }
+      />
     </Routes>
   );
 }

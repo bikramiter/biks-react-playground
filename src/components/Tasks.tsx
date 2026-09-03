@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Task } from "../types/task";
 import TaskRow from "./TaskRow";
 
@@ -9,6 +10,9 @@ export default function Tasks({ tasks }: TasksProps) {
   return (
     <>
       <h1>All Tasks</h1>
+      <Link className="new-task-link" to="/new-task">
+        + New Task
+      </Link>
       <table>
         <thead>
           <tr>
