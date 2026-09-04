@@ -4,15 +4,23 @@ import Tasks from "./components/Tasks";
 import { Navigate, Route, Routes } from "react-router-dom";
 import TaskDetails from "./pages/TaskDetails";
 import CreateTask from "./pages/CreateTask";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Task } from "./types/task";
 
 function App() {
-  const [allTasks, setAllTasks] = useState<Task[]>(initialTasks);
+  const [allTasks, setAllTasks] = useState<Task[]>(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : initialTasks;
+  });
 
   function handleAddTask(newTask: Task) {
     setAllTasks((prevTasks) => [...prevTasks, newTask]);
   }
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(allTasks));
+  }, [allTasks]);
+
   return (
     <Routes>
       <Route index element={<Navigate to="/tasks" replace />} />
