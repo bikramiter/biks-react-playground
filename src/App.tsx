@@ -30,6 +30,11 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(allTasks));
   }, [allTasks]);
 
+  const nextTaskId =
+    allTasks.length === 0
+      ? 1
+      : Math.max(...allTasks.map((task) => task.id)) + 1;
+
   return (
     <Routes>
       <Route index element={<Navigate to="/tasks" replace />} />
@@ -42,10 +47,7 @@ function App() {
       <Route
         path="/new-task"
         element={
-          <CreateTask
-            onAddTask={handleAddTask}
-            nextTaskId={allTasks.length + 1}
-          />
+          <CreateTask onAddTask={handleAddTask} nextTaskId={nextTaskId} />
         }
       />
     </Routes>
