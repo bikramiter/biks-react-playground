@@ -36,6 +36,11 @@ export default function TaskDetails({ tasks }: TaskDetailsProps) {
             <span className="task-details-label">Status:</span>{" "}
             {statusLabels[taskDetails.status]}
           </p>
+          <p>
+            <Link className="back-link" to={`/tasks/${taskDetails.id}/edit`}>
+              Edit
+            </Link>
+          </p>
         </>
       ) : (
         <p>Task not found.</p>

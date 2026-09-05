@@ -2,10 +2,11 @@ import "./App.css";
 import { tasks as initialTasks } from "./data/tasks";
 import Tasks from "./components/Tasks";
 import { Navigate, Route, Routes } from "react-router-dom";
-import TaskDetails from "./pages/TaskDetails";
 import CreateTask from "./pages/CreateTask";
+import EditTask from "./pages/EditTask";
 import { useEffect, useState } from "react";
 import type { Task } from "./types/task";
+import TaskDetails from "./pages/TaskDetails";
 
 function App() {
   const [allTasks, setAllTasks] = useState<Task[]>(() => {
@@ -17,6 +18,14 @@ function App() {
     setAllTasks((prevTasks) => [...prevTasks, newTask]);
   }
 
+  function handleEditTask(updatedTask: Task) {
+    setAllTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === updatedTask.id ? updatedTask : task,
+      ),
+    );
+  }
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(allTasks));
   }, [allTasks]);
@@ -26,6 +35,10 @@ function App() {
       <Route index element={<Navigate to="/tasks" replace />} />
       <Route path="/tasks" element={<Tasks tasks={allTasks} />} />
       <Route path="/tasks/:taskId" element={<TaskDetails tasks={allTasks} />} />
+      <Route
+        path="/tasks/:taskId/edit"
+        element={<EditTask tasks={allTasks} onEditTask={handleEditTask} />}
+      />
       <Route
         path="/new-task"
         element={
